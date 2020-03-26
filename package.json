@@ -38,6 +38,7 @@
     "passport-local-mongoose": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "pug": "^2.0.3",
+    "rd": "^2.0.1",
     "sass-loader": "^7.1.0",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2"
@@ -51,11 +52,10 @@
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rd /s /q build",
     "tunnel": "lt --port 4000",
-    "start": "PRODUCTION=true node build/init.js",
+    "start": "node build/init.js",
     "prestart": "npm run build"
   },
   "devDependencies": {
-    "@babel/node": "^7.0.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.3.0",
