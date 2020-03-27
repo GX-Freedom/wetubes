@@ -1,26 +1,59 @@
 .header {
-    background-color: $red;
+    background-color: rgba(0, 0, 255, 0.26);
     margin-bottom: 50px;
     width: 100%;
+    &:hover{
+      background-color: rgba(255, 0, 0, 0.658);
+    }
     .header__wrapper {
       padding: 5px 0px;
       width: 100%;
       margin: 0 auto;
       max-width: 1200px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      // display: grid;
+      // grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       .header__column {
         i {
           color: white;
           font-size: 40px;
+          &:hover{
+            animation: identifier 0.7s linear infinite;
+          }
+          @keyframes identifier {
+            0%{
+
+            }
+            100%{
+              background: rgb(246,59,59);
+              background: linear-gradient(90deg, rgba(246,59,59,0.9682247899159664) 0%, rgba(246,59,59,0.7595413165266106) 50%, rgba(62,59,246,1) 100%);
+            }
+          }
+        }
+        li{
+            &:hover{
+              animation: identifier2 0.7s linear infinite;
+            }
+            @keyframes identifier2 {
+              0%{
+  
+              }
+              100%{
+                color: rgb(246,59,59);
+                color: linear-gradient(90deg, rgba(246,59,59,0.9682247899159664) 0%, rgba(246,59,59,0.7595413165266106) 50%, rgba(62,59,246,1) 100%);
+              }
+            }
         }
         &:nth-child(2) {
           width: 100%;
           justify-self: center;
+         
         }
         &:last-child {
           justify-self: end;
+         
         }
         ul {
           display: flex;
@@ -35,7 +68,7 @@
           width: 100%;
           input {
             padding: 7px 10px;
-            width: 100%;
+            width: 100px;
             border-radius: 5px;
             font-size: 14px;
             color: $black;
@@ -43,6 +76,9 @@
             &::placeholder {
               font-weight: 300;
               color: rgba(0, 0, 0, 0.7);
+            }
+            &:focus{
+              width: 100%;
             }
           }
         }

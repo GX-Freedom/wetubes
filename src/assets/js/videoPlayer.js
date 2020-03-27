@@ -1,3 +1,5 @@
+import getBlobDuration from "get-blob-duration";
+
 const videoContainer = document.getElementById("jsVideoPlayer");
 const videoPlayer = document.querySelector("#jsVideoPlayer video");
 const playBtn = document.getElementById("jsPlayButton");
@@ -7,7 +9,6 @@ const currentTime = document.getElementById("currentTime");
 const totalTime = document.getElementById("totalTime");
 const volumeRange = document.getElementById("jsVolume");
 const timeLine = document.getElementById("timeLine");
-
 const registerView = () => {
     const videoId = window.location.href.split("/videos/")[1];
     fetch(`/api/${videoId}/view`, {
@@ -88,9 +89,10 @@ function getCurrentTime() {
     currentTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
     timeLine.value = Math.floor(videoPlayer.currentTime);
 }
-
-function setTotalTime() {
-    const totalTimeString = formatDate(videoPlayer.duration);
+async function setTotalTime() {
+    const blob = await fetch(videoPlayer.src).then(response => response.blob());
+    const duration = await getBlobDuration(blob);
+    const totalTimeString = formatDate(duration);
     totalTime.innerHTML = totalTimeString;
     timeLine.max = videoPlayer.duration;
     setInterval(getCurrentTime, 1000);

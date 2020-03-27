@@ -11,4 +11,8 @@
     .videoBlock:nth-child(5) {
       grid-column: span 2;
     }
+    @media screen and (max-widht: 700px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+    }
   }
