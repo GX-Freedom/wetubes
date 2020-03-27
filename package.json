@@ -1,8 +1,6 @@
 {
   "name": "wetube",
   "version": "1.0.0",
-  "description": "Cloning Youtube with Vanilla and NodeJS",
-  "author": "Nicolás Serrano Arévalo",
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
@@ -51,9 +49,9 @@
     "copyAll": "shx cp -R src/static build && shx cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "shx rm -rf build",
-    "tunnel": "lt --port 4000",
-    "start": "PRODUCTION=true node build/init.js",
-    "prestart": "npm run build"
+    "tunnel": "lt --port 3000",
+    "start": "node build/init.js",
+    "prestart": "PRODUCTION=true npm run build"
   },
   "devDependencies": {
     "eslint": "^5.9.0",
@@ -74,5 +72,8 @@
   "bugs": {
     "url": "https://github.com/GX-Freedom/wetubes/issues"
   },
-  "homepage": "https://github.com/GX-Freedom/wetubes#readme"
+  "homepage": "https://github.com/GX-Freedom/wetubes#readme",
+  "engines": {
+    "node": "13.6.0"
+  }
 }
